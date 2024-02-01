@@ -1,0 +1,11 @@
+type PingReq {
+	TP string `form:"tp,optional"`
+}
+
+@server(
+	prefix: "q"
+)
+service main {
+	@handler Ping
+	get /ping (PingReq)
+}
