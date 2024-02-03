@@ -14,7 +14,7 @@ var svcCtx *svc.ServiceContext
 func init() {
 	ctx = context.TODO()
 	var c config.Config
-	conf.MustLoad("etc/main.yaml", &c)
+	conf.MustLoad("../etc/main.yaml", &c)
 	svcCtx = svc.NewServiceContext(c)
 }
 

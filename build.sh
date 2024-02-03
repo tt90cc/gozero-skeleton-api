@@ -38,7 +38,7 @@ echo "编译"
 echo "==========================="
 echo ""
 
-go mod download && GOOS=linux GOARCH=amd64 go build -o ${exe} main.go
+go mod tidy && GOOS=linux GOARCH=amd64 go build -o ${exe} main.go
 
 if [ $? -ne 0 ]; then
    echo "go build failed"
@@ -56,8 +56,8 @@ rm -rf ${builder_path}
 mkdir -p ${builder_path}/logs ${builder_path}/etc
 
 mv ${exe} ${builder_path}
-cp -r ${server}/etc/${cluster}/* ${builder_path}/etc
-cp -r ${server}/template ${builder_path}
+cp -r ./etc/${cluster}/* ${builder_path}/etc
+cp -r ./template ${builder_path}
 
 cd ${builder_path} && zip -q -r ${exe}.zip *
 
