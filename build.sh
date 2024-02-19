@@ -29,8 +29,8 @@ echo ""
 rm -rf /tmp/pullwk
 mkdir -p /tmp/pullwk
 cd /tmp/pullwk && \
-git clone -b dev git@github.com:tt90cc/go-zero-skeleton.git && \
-cd go-zero-skeleton
+git clone -b dev git@github.com:tt90cc/${exe}.git && \
+cd ${exe}
 
 echo ""
 echo "==========================="
@@ -57,7 +57,7 @@ mkdir -p ${builder_path}/logs ${builder_path}/etc
 
 mv ${exe} ${builder_path}
 cp -r ./etc/${cluster}/* ${builder_path}/etc
-cp -r ./template ${builder_path}
+#cp -r ./template ${builder_path}
 
 cd ${builder_path} && zip -q -r ${exe}.zip *
 
